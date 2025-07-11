@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTrack - Workout App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #0f172a, #3b1e2a);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: url('https://imgs.search.brave.com/gvE-uS8ZlYvKAG4hdhLmDYAXeWHp7RuRnBFFmi9dT1c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/Z3ltLXdlaWdodHMu/anBnP3dpZHRoPTEw/MDAmZm9ybWF0PXBq/cGcmZXhpZj0wJmlw/dGM9MA') no-repeat center center/cover;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #38bdf8, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: bounce 2s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #66b9df;
+      margin-bottom: 1rem;
+    }
+
+    .workout-section,
+    .store-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+      margin-top: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+    }
+
+    .timer {
+      font-size: 2rem;
+      margin-top: 1rem;
+      color: #38bdf8;
+    }
+
+    .info-box {
+      margin-top: 3rem;
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .info-box h4 {
+      font-size: 1.5rem;
+      color: #f472b6;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-box p {
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to FitTrack Workout App</h1>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Today's Plan</h2>
+    <div class="workout-section">
+      <div class="card">
+        <img
+          src="https://cdn.betterme.world/articles/wp-content/uploads/2025/06/BP-169-workout-app-for-men-1024x640.png"
+          alt="Upper Body">
+        <h3>💪 Upper Body</h3>
+        <p>Push-ups, Shoulder Press, Pull-ups</p>
+        <button class="btn-primary" onclick="startTimer(this)">Start</button>
+        <div class="timer">00:00</div>
+      </div>
+      <div class="card">
+        <img
+          src="https://thumbs.dreamstime.com/b/muscular-man-muscle-legs-gym-strong-male-black-hoodie-big-quads-98730692.jpg"
+          alt="Lower Body">
+        <h3>🦵 Lower Body</h3>
+        <p>Squats, Lunges, Deadlifts</p>
+        <button class="btn-primary" onclick="startTimer(this)">Start</button>
+        <div class="timer">00:00</div>
+      </div>
+      <div class="card">
+        <img
+          src="https://thumbs.dreamstime.com/b/exercise-treadmill-cardio-running-workout-fitness-exercise-treadmill-cardio-running-workout-fitness-gym-woman-taking-110117595.jpg"
+          alt="Cardio">
+        <h3>❤️ Cardio</h3>
+        <p>Running, Cycling, Jump Rope</p>
+        <button class="btn-primary" onclick="startTimer(this)">Start</button>
+        <div class="timer">00:00</div>
+      </div>
+      <div class="card">
+        <img src="https://cdn.create.vista.com/api/media/small/179703372/stock-photo-couple-stretching-mats-workout-gym"
+          alt="Flexibility">
+        <h3>🧘 Flexibility</h3>
+        <p>Stretching, Yoga, Foam Rolling</p>
+        <button class="btn-primary" onclick="startTimer(this)">Start</button>
+        <div class="timer">00:00</div>
+      </div>
+    </div>
+
+    <h2 class="section-title">💊 Supplement Store</h2>
+    <div class="store-section">
+      <div class="card">
+        <img src="https://img.freepik.com/premium-photo/scoop-whey-protein_157823-860.jpg" alt="Optimum Nutrition Whey">
+        <h3>Whey Protein</h3>
+        <p>Premium blend for lean muscle recovery & strength.</p>
+        <button class="btn-primary">Buy Now</button>
+      </div>
+      <div class="card">
+        <img
+          src="https://thumbs.dreamstime.com/b/pharmacy-shelves-alley-pills-box-healthcare-store-shelf-medicine-supplements-pharmacy-shelves-alley-342296471.jpg"
+          alt="Supplement Container">
+        <h3>Supplement Box</h3>
+        <p>Keep your daily stack organized and accessible.</p>
+        <button class="btn-primary">Buy Now</button>
+      </div>
+      <div class="card">
+        <img src="https://m.media-amazon.com/images/I/31xVIdBE-2L.jpg" alt="Shaker Bottle">
+        <h3>Shaker Bottle</h3>
+        <p>Effortlessly blend your protein shakes on-the-go.</p>
+        <button class="btn-primary">Buy Now</button>
+      </div>
+      <div class="card">
+        <img src="https://barbend.com/wp-content/uploads/2024/08/gainful-pre-workout-scoop.jpg"
+          alt="Preworkout Scoop Cup">
+        <h3>Pre-Workout</h3>
+        <p>Energy-packed scoops for high performance sessions.</p>
+        <button class="btn-primary">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h4>⏰ Gym Timings</h4>
+      <p>Open Daily: 5:00 AM – 10:00 PM</p>
+    </div>
+    <div class="info-box">
+      <h4>📍 Location</h4>
+      <p>DynamicFit Center, Block C, Cyber Avenue, Bengaluru</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 FitTrack. Stay fit, stay futuristic. 💙
+  </footer>
+
+  <script>
+    let interval;
+    function startTimer(button) {
+      const timerDiv = button.nextElementSibling;
+      let seconds = 0;
+      if (interval) clearInterval(interval);
+      interval = setInterval(() => {
+        seconds++;
+        const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const secs = String(seconds % 60).padStart(2, '0');
+        timerDiv.textContent = `${mins}:${secs}`;
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>
